@@ -1,13 +1,13 @@
-import Aluno from '../models/aluno';
-import Foto from '../models/Fotos';
+"use strict";Object.defineProperty(exports, "__esModule", {value: true}); function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }var _aluno = require('../models/aluno'); var _aluno2 = _interopRequireDefault(_aluno);
+var _Fotos = require('../models/Fotos'); var _Fotos2 = _interopRequireDefault(_Fotos);
 
 class HomeController {
   async index(req, res) {
-    const alunos = await Aluno.findAll({
+    const alunos = await _aluno2.default.findAll({
       attributes: ['id', 'nome', 'sobrenome', 'email', 'idade', 'peso', 'altura'],
-      order: [['id', 'DESC'], [Foto, 'id', 'DESC']],
+      order: [['id', 'DESC'], [_Fotos2.default, 'id', 'DESC']],
       include: {
-        model: Foto,
+        model: _Fotos2.default,
         attributes: ['url', 'filename'],
       },
     });
@@ -16,7 +16,7 @@ class HomeController {
 
   async store(req, res) {
     try {
-      const alunoCreate = await Aluno.create({
+      const alunoCreate = await _aluno2.default.create({
           nome: 'Maria',
           sobrenome: 'Miranda',
           email: 'maria@gmail.com',
@@ -34,7 +34,7 @@ class HomeController {
 
   async update(req, res) {
     try {
-      const users = await Aluno.findByPk(req.params.id);
+      const users = await _aluno2.default.findByPk(req.params.id);
       if (!users) {
         return res.status(400).json({
           errors: ['Usuário não existe', req.params.id],
@@ -63,7 +63,7 @@ class HomeController {
         })
       }
 
-      const users = await Aluno.findByPk(req.params.id);
+      const users = await _aluno2.default.findByPk(req.params.id);
       if (!users) {
         return res.status(400).json({
           errors: ['Usuário não existe'],
@@ -81,4 +81,4 @@ class HomeController {
   }
 }
 
-export default new HomeController();
+exports. default = new HomeController();

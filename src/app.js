@@ -2,15 +2,16 @@
 import express from 'express';
 // eslint-disable-next-line import/extensions
 import dotenv from 'dotenv';
+import { resolve } from 'path';
 
 dotenv.config();
 // eslint-disable-next-line import/extensions
-import homeRoutes from './src/routes/homeRoutes.js';
-import userRoutes from './src/routes/userRoutes.js';
-import tokenRoutes from './src/routes/tokenRoutes.js';
-import alunoRoutes from './src/routes/alunoRoutes.js';
-import fotoRoutes from './src/routes/fotoRouter.js';
-import './src/database';
+import homeRoutes from './routes/homeRoutes.js';
+import userRoutes from './routes/userRoutes.js';
+import tokenRoutes from './routes/tokenRoutes.js';
+import alunoRoutes from './routes/alunoRoutes.js';
+import fotoRoutes from './routes/fotoRouter.js';
+import './database/index.js';
 
 class App {
   constructor() {
@@ -22,6 +23,7 @@ class App {
   middlewares() {
     this.app.use(express.urlencoded({ extended: true }));
     this.app.use(express.json());
+    this.app.use(express.static(resolve(__dirname, 'uploads')));
   }
 
   routes() {
