@@ -6,12 +6,12 @@ var _path = require('path');
 
 _dotenv2.default.config();
 // eslint-disable-next-line import/extensions
-var _homeRoutesjs = require('./routes/homeRoutes.js'); var _homeRoutesjs2 = _interopRequireDefault(_homeRoutesjs);
-var _userRoutesjs = require('./routes/userRoutes.js'); var _userRoutesjs2 = _interopRequireDefault(_userRoutesjs);
-var _tokenRoutesjs = require('./routes/tokenRoutes.js'); var _tokenRoutesjs2 = _interopRequireDefault(_tokenRoutesjs);
-var _alunoRoutesjs = require('./routes/alunoRoutes.js'); var _alunoRoutesjs2 = _interopRequireDefault(_alunoRoutesjs);
-var _fotoRouterjs = require('./routes/fotoRouter.js'); var _fotoRouterjs2 = _interopRequireDefault(_fotoRouterjs);
-require('./database/index.js');
+var _homeRoutes = require('./routes/homeRoutes'); var _homeRoutes2 = _interopRequireDefault(_homeRoutes);
+var _userRoutes = require('./routes/userRoutes'); var _userRoutes2 = _interopRequireDefault(_userRoutes);
+var _tokenRoutes = require('./routes/tokenRoutes'); var _tokenRoutes2 = _interopRequireDefault(_tokenRoutes);
+var _alunoRoutes = require('./routes/alunoRoutes'); var _alunoRoutes2 = _interopRequireDefault(_alunoRoutes);
+var _fotoRouter = require('./routes/fotoRouter'); var _fotoRouter2 = _interopRequireDefault(_fotoRouter);
+require('./database/index');
 
 class App {
   constructor() {
@@ -23,15 +23,15 @@ class App {
   middlewares() {
     this.app.use(_express2.default.urlencoded({ extended: true }));
     this.app.use(_express2.default.json());
-    this.app.use(_express2.default.static(_path.resolve.call(void 0, __dirname, 'uploads')));
+    this.app.use(_express2.default.static(_path.resolve.call(void 0, __dirname, '..', 'uploads', 'images')));
   }
 
   routes() {
-    this.app.use('/', _homeRoutesjs2.default);
-    this.app.use('/users/', _userRoutesjs2.default);
-    this.app.use('/tokens/', _tokenRoutesjs2.default);
-    this.app.use('/alunos/', _alunoRoutesjs2.default);
-    this.app.use('/fotos/', _fotoRouterjs2.default);
+    this.app.use('/', _homeRoutes2.default);
+    this.app.use('/users/', _userRoutes2.default);
+    this.app.use('/tokens/', _tokenRoutes2.default);
+    this.app.use('/alunos/', _alunoRoutes2.default);
+    this.app.use('/fotos/', _fotoRouter2.default);
   }
 }
 
