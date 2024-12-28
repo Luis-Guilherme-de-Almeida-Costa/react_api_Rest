@@ -35,4 +35,4 @@ class App {
   }
 }
 
-exports. default = new App().app;
+exports.default = new App().app;
