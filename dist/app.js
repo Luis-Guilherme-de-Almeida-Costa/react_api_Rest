@@ -15,7 +15,7 @@ var _alunoRoutes = require('./routes/alunoRoutes'); var _alunoRoutes2 = _interop
 var _fotoRouter = require('./routes/fotoRouter'); var _fotoRouter2 = _interopRequireDefault(_fotoRouter);
 require('./database/index');
 
-const whiteList = ['http://192.168.1.13:80', 'http://localhost:3002'];
+const whiteList = ['http://192.168.1.13:80', 'http://localhost:3002', 'http://localhost:3000'];
 
 const corsOptions = {
   origin: (origin, callback) => {

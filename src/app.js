@@ -15,7 +15,7 @@ import alunoRoutes from './routes/alunoRoutes';
 import fotoRoutes from './routes/fotoRouter';
 import './database/index';
 
-const whiteList = ['http://192.168.1.13:80', 'http://localhost:3002'];
+const whiteList = ['http://192.168.1.13:80', 'http://localhost:3002', 'http://localhost:3000'];
 
 const corsOptions = {
   origin: (origin, callback) => {
