@@ -1,5 +1,6 @@
-import User from '../models/User';
 import jwt from 'jsonwebtoken';
+
+import User from '../models/User';
 
 class Token {
   async index(req, res) {
